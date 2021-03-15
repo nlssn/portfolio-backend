@@ -13,10 +13,14 @@ if(isset($_SESSION["id"])) {
 
 // Handle login
 if(isset($_POST["email"])) {
-   $secret = "1234";
-   if($_POST["password"] == $secret) {
-      $_SESSION["id"] = 1;
-      $_SESSION["name"] = "Johannes";
+   $database = new Database();
+   $db = $database->connect();
+
+   $user = new User($db);
+   $user->email = $_POST["email"];
+   $user->password = $_POST["password"];
+
+   if($user->logIn()) {
       header("Location: admin.php");
    } else {
       $msg = array(
