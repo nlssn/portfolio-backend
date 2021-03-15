@@ -5,8 +5,11 @@
  */
 ?>
 
-   <footer class="site-footer">
-      <p>&copy; <?= date("Y") ?> &middot; Johannes Nilsson</p>
-   </footer>
+</main>
+
+<footer class="site-footer">
+   <p>&copy; <?= date("Y") ?> &middot; Johannes Nilsson</p>
+</footer>
+
 </body>
 </html>

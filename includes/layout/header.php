@@ -27,3 +27,5 @@ require_once("includes/settings.php");
       </ul>
    </nav>
 </header>
+
+<main class="page-content">
