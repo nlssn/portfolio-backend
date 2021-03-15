@@ -5,6 +5,28 @@
  * joni1307@student.miun.se | HT20 | DT173G, Projekt
  */
 
+require_once("includes/settings.php");
+
+// Check if the user is already logged in
+if(isset($_SESSION["id"])) {
+   header("Location: admin.php");
+}
+
+// Handle login
+if(isset($_POST["email"])) {
+   $secret = "1234";
+   if($_POST["password"] == $secret) {
+      $_SESSION["id"] = 1;
+      $_SESSION["name"] = "Johannes";
+      header("Location: admin.php");
+   } else {
+      $msg = array(
+         "text" => "Fel e-post eller lösenord!",
+         "type" => "error"
+      );
+   }
+}
+
 // Handle any incoming message
 if(isset($_GET["msg"]) && isset($_GET["type"])) {
    $msg = array(
@@ -22,7 +44,7 @@ require_once("includes/layout/header.php");
 <div class="form-container">
    <?php if(isset($msg)){ echo '<p class="' . $msg["type"] . '">' . $msg["text"] . '</p>'; } ?> 
 
-   <form action="POST">
+   <form method="POST">
       <label for="email">E-post</label>
       <input type="email" name="email" id="email">
       <label for="password">Lösenord</label>
