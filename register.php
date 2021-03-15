@@ -1,6 +1,6 @@
 <?php
 /* register.php
- * Let's a new user register an account.
+ * Lets a new user register an account.
  * joni1307@student.miun.se | HT20 | DT173G, Projekt
  */
 
