@@ -21,9 +21,9 @@ require_once("includes/settings.php");
 
    <nav class="nav-primary">
       <ul>
-         <li><a href="#0">Adminpanel</a></li>
-         <li><a href="#0">Skapa</a></li>
-         <li><a href="#0">Logga ut</a></li>
+         <li><a href="admin.php">Adminpanel</a></li>
+         <li><a href="editor.php">Skapa</a></li>
+         <li><a href="logout.php">Logga ut</a></li>
       </ul>
    </nav>
 </header>
