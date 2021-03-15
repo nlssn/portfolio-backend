@@ -3,6 +3,8 @@
  * It's the header.
  * joni1307@student.miun.se | HT20 | DT173G, Projekt
  */
+
+require_once("includes/settings.php");
 ?>
 
 <!DOCTYPE html>
