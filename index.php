@@ -1,5 +1,4 @@
 <?php
-
 /* index.php
  * The index of the CMS. Let's the user log in.
  * joni1307@student.miun.se | HT20 | DT173G, Projekt
