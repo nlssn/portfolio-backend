@@ -6,7 +6,7 @@
 
 class User {
    // Properties (matching the database)
-   private $db_table = "Users";
+   private $db_table = "users";
    public $id;
    public $name_first;
    public $name_last;
