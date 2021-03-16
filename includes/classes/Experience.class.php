@@ -4,7 +4,7 @@
  * joni1307@student.miun.se | HT20 | DT173G, Projekt
  */
 
-class User {
+class Experience {
    // Properties (matching the database)
    private $db_table = "experience";
    public $id;
@@ -25,7 +25,7 @@ class User {
    }
 
    // Create
-   public function createUser() {
+   public function createExperience() {
       // Set up the query
       $query = "INSERT INTO
                   " . $this->db_table . "
