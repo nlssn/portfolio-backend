@@ -14,6 +14,8 @@
 </head>
 <body class="<?= basename($_SERVER['SCRIPT_FILENAME'], '.php') ?>">
 
+<?php 
+   if(isset($_SESSION["id"])) { ?>
 <header class="site-header">
    <p class="logo"><?= SITENAME ?></p>
 
@@ -25,5 +27,6 @@
       </ul>
    </nav>
 </header>
+<?php } ?>
 
 <main class="page-content">
