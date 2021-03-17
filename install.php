@@ -12,12 +12,11 @@ $db = $database->connect();
 
 // Set up the first query
 $query = "
-CREATE TABLE IF NOT EXISTS `Experience` (
+CREATE TABLE IF NOT EXISTS `Education` (
    `id` int(11) NOT NULL AUTO_INCREMENT,
    `title` varchar(256) NOT NULL,
-   `location` varchar(256) NOT NULL,
+   `school` varchar(256) NOT NULL,
    `description` text NOT NULL,
-   `category` int(11) NOT NULL,
    `date_start` date NOT NULL,
    `date_end` date NOT NULL,
    `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -27,13 +26,35 @@ CREATE TABLE IF NOT EXISTS `Experience` (
 // Prepare the query and execute it
 $stmt = $db->prepare($query);
 if($stmt->execute()) {
-   echo "<p>Added the <i>Experience</i> table</p>";
+   echo "<p>Added the <i>Education</i> table</p>";
    echo "<pre>" . $query . "</pre>";
 } else {
-   echo "<p>Failed to add the <i>Experience</i> table</p>";
+   echo "<p>Failed to add the <i>Education</i> table</p>";
 }
 
 // Set up the second query
+$query = "
+CREATE TABLE IF NOT EXISTS `Employment` (
+   `id` int(11) NOT NULL AUTO_INCREMENT,
+   `title` varchar(256) NOT NULL,
+   `company` varchar(256) NOT NULL,
+   `description` text NOT NULL,
+   `date_start` date NOT NULL,
+   `date_end` date NOT NULL,
+   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8";
+
+// Prepare the query and execute it
+$stmt = $db->prepare($query);
+if($stmt->execute()) {
+   echo "<p>Added the <i>Employment</i> table</p>";
+   echo "<pre>" . $query . "</pre>";
+} else {
+   echo "<p>Failed to add the <i>Employment</i> table</p>";
+}
+
+// Set up the third query
 $query = "
 CREATE TABLE IF NOT EXISTS `Portfolio` (
    `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -53,7 +74,7 @@ if($stmt->execute()) {
    echo "<p>Failed to add the <i>Portfolio</i> table</p>";
 }
 
-// Set up the third query
+// Set up the fourth query
 $query = "
 CREATE TABLE IF NOT EXISTS `Users` (
    `id` int(11) NOT NULL AUTO_INCREMENT,
