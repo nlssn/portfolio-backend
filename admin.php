@@ -15,10 +15,10 @@ $database = new Database();
 $db = $database->connect();
 $education = new Education($db);
 $employment = new Employment($db);
-//$portfolio = new Portfolio($db);
+$project = new Project($db);
 $education_items = $education->getEducations()["data"];
 $employment_items = $employment->getEmployments()["data"];
-//$portfolio_items = $portfolio->getPortfolios()["data"];
+$project_items = $project->getProjects()["data"];
 
 $page_title = "Adminpanel";
 require_once("includes/layout/header.php");
@@ -46,6 +46,19 @@ require_once("includes/layout/header.php");
    foreach ($education_items as $item) { ?>
       <li>
          <a href="editor.php?contentType=education&id=<?= $item["id"] ?>">
+            <?= $item["title"] ?>
+         </a>
+      </li>
+<?php
+   } ?>
+</ul>
+
+<h2>Projekt</h2>
+<ul>
+<?php
+   foreach ($project_items as $item) { ?>
+      <li>
+         <a href="editor.php?contentType=project&id=<?= $item["id"] ?>">
             <?= $item["title"] ?>
          </a>
       </li>
