@@ -52,7 +52,7 @@ class Education {
 
       // Try to execute the statement
       if($stmt->execute()) {
-         return true;
+         return $this->getSingleEducation($this->conn->lastInsertId());
       }
       
       // If anything fails, return false
@@ -171,7 +171,7 @@ class Education {
 
       // Try to execute the statement
       if($stmt->execute()) {
-         return true;
+         return $this->getSingleEducation($id);
       }
       
       // If anything fails, return false
