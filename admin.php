@@ -27,7 +27,7 @@ require_once("includes/layout/header.php");
 <h1>Hej <?= $_SESSION["name"] ?>! Du är nu inloggad.</h1>
 <p>Nedan kan du se lite information om det material du skapat.</p>
 
-<h2>Anställningar</h2>
+<h2>Anställningar <span="item-count">(<?= count($employment_items) ?>)</span></h2>
 <ul>
 <?php
    foreach ($employment_items as $item) { ?>
@@ -40,7 +40,7 @@ require_once("includes/layout/header.php");
    } ?>
 </ul>
 
-<h2>Utbildningar</h2>
+<h2>Utbildningar <span="item-count">(<?= count($education_items) ?>)</span></h2>
 <ul>
 <?php
    foreach ($education_items as $item) { ?>
@@ -53,7 +53,7 @@ require_once("includes/layout/header.php");
    } ?>
 </ul>
 
-<h2>Projekt</h2>
+<h2>Projekt <span="item-count">(<?= count($project_items) ?>)</span></h2>
 <ul>
 <?php
    foreach ($project_items as $item) { ?>
