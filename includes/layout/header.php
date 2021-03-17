@@ -25,8 +25,8 @@
          <li>
             Skapa
             <ul>
-               <li><a href="editor.php?contentType=portfolio">Portfolioprojekt</a></li>
-               <li><a href="editor.php?contentType=employment">Arbetslivserfarenhet</a></li>
+               <li><a href="editor.php?contentType=project">Projekt</a></li>
+               <li><a href="editor.php?contentType=employment">Anställning</a></li>
                <li><a href="editor.php?contentType=education">Utbildning</a></li>
             </ul>
          </li>

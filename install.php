@@ -56,7 +56,7 @@ if($stmt->execute()) {
 
 // Set up the third query
 $query = "
-CREATE TABLE IF NOT EXISTS `Portfolio` (
+CREATE TABLE IF NOT EXISTS `Project` (
    `id` int(11) NOT NULL AUTO_INCREMENT,
    `title` varchar(256) NOT NULL,
    `url` varchar(256) NOT NULL,
@@ -68,10 +68,10 @@ CREATE TABLE IF NOT EXISTS `Portfolio` (
 // Prepare the query and execute it
 $stmt = $db->prepare($query);
 if($stmt->execute()) {
-   echo "<p>Added the <i>Portfolio</i> table</p>";
+   echo "<p>Added the <i>Project</i> table</p>";
    echo "<pre>" . $query . "</pre>";
 } else {
-   echo "<p>Failed to add the <i>Portfolio</i> table</p>";
+   echo "<p>Failed to add the <i>Project</i> table</p>";
 }
 
 // Set up the fourth query

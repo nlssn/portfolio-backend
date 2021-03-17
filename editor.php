@@ -32,13 +32,13 @@ if(!isset($_GET["id"])) {
 // Set the page_title depending on contentType and isEditing
 switch ($contentType) {
    case "employment":
-      $page_title = $isEditing ? $title_prefix . " arbetslivserfarenhet" : $title_prefix . " ny arbetslivserfarenhet";
+      $page_title = $isEditing ? $title_prefix . " anställning" : $title_prefix . " ny anställning";
       break;
    case "education":
       $page_title = $isEditing ? $title_prefix . " utbildning" : $title_prefix . " ny utbildning";
       break;
-   case "portfolio":
-      $page_title = $isEditing ? $title_prefix . " portfolioprojekt" : $title_prefix . " nytt portfolioprojekt";
+   case "project":
+      $page_title = $isEditing ? $title_prefix . " projekt" : $title_prefix . " nytt projekt";
       break;
 }
 
@@ -56,8 +56,8 @@ switch($contentType) {
    case "education":
       require("includes/editor/education-form.php");
       break;
-   case "portfolio":
-      require("includes/editor/portfolio-form.php");
+   case "project":
+      require("includes/editor/project-form.php");
       break;
 }
 
