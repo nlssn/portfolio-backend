@@ -42,6 +42,14 @@ switch ($contentType) {
       break;
 }
 
+// Handle any incoming message
+if(isset($_GET["msg"]) && isset($_GET["type"])) {
+   $msg = array(
+      "text" => $_GET["msg"],
+      "type" => $_GET["type"]
+   );
+}
+
 require_once("includes/layout/header.php");
 ?>
 
