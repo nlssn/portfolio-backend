@@ -47,7 +47,7 @@ require_once("includes/layout/header.php");
       <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Måste innehålla minst 8 tecken varav minst en siffra, en stor bokstav och en liten bokstav." required>
       <input type="submit" value="Skapa konto">
    </form>
-   <p class="small">Har du redan ett konto? <a href="register.php">Logga in här</a>.</p>
+   <p class="small">Har du redan ett konto? <a href="index.php">Logga in här</a>.</p>
 </div>
 
 <?php
