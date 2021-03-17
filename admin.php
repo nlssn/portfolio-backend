@@ -13,12 +13,12 @@ if(!isset($_SESSION["id"])) {
 // Get all the required content
 $database = new Database();
 $db = $database->connect();
-//$employment = new Employment($db);
 $education = new Education($db);
+$employment = new Employment($db);
 //$portfolio = new Portfolio($db);
-//$employment_items = $employment->getEmployments()["data"];
-//$portfolio_items = $portfolio->getPortfolios()["data"];
 $education_items = $education->getEducations()["data"];
+$employment_items = $employment->getEmployments()["data"];
+//$portfolio_items = $portfolio->getPortfolios()["data"];
 
 $page_title = "Adminpanel";
 require_once("includes/layout/header.php");
@@ -26,6 +26,19 @@ require_once("includes/layout/header.php");
 
 <h1>Hej <?= $_SESSION["name"] ?>! Du är nu inloggad.</h1>
 <p>Nedan kan du se lite information om det material du skapat.</p>
+
+<h2>Anställningar</h2>
+<ul>
+<?php
+   foreach ($employment_items as $item) { ?>
+      <li>
+         <a href="editor.php?contentType=employment&id=<?= $item["id"] ?>">
+            <?= $item["title"] ?> på <?= $item["company"] ?>
+         </a>
+      </li>
+<?php
+   } ?>
+</ul>
 
 <h2>Utbildningar</h2>
 <ul>
