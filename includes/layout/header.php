@@ -22,7 +22,14 @@
    <nav class="nav-primary">
       <ul>
          <li><a href="admin.php">Adminpanel</a></li>
-         <li><a href="editor.php">Skapa</a></li>
+         <li>
+            Skapa
+            <ul>
+               <li><a href="editor.php?contentType=portfolio">Portfolioprojekt</a></li>
+               <li><a href="editor.php?contentType=employment">Arbetslivserfarenhet</a></li>
+               <li><a href="editor.php?contentType=education">Utbildning</a></li>
+            </ul>
+         </li>
          <li><a href="logout.php">Logga ut</a></li>
       </ul>
    </nav>
