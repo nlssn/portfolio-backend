@@ -1,17 +1,16 @@
 <?php
-/* includes/classes/Experience.class.php
- * The experience class.
+/* includes/classes/Education.class.php
+ * The education class.
  * joni1307@student.miun.se | HT20 | DT173G, Projekt
  */
 
-class Experience {
+class Education {
    // Properties (matching the database)
-   private $db_table = "experience";
+   private $db_table = "education";
    public $id;
    public $title;
-   public $location;
+   public $school;
    public $description;
-   public $category;
    public $date_start;
    public $date_end;
    public $created;
@@ -25,21 +24,20 @@ class Experience {
    }
 
    // Create
-   public function createExperience() {
+   public function createEducation() {
       // Set up the query
       $query = "INSERT INTO
                   " . $this->db_table . "
                SET
                   title = :title,
-                  location = :location,
+                  school = :school,
                   description = :description,
-                  category = :category,
                   date_start = :date_start,
                   date_end = :date_end";
 
       // Sanitize input
       $this->title = htmlspecialchars(strip_tags($this->title));
-      $this->location = htmlspecialchars(strip_tags($this->location));
+      $this->school = htmlspecialchars(strip_tags($this->school));
       $this->description = htmlspecialchars(strip_tags($this->description));
 
       // Prepare statment
@@ -47,9 +45,8 @@ class Experience {
 
       // Bind data to params
       $stmt->bindParam(":title", $this->title);
-      $stmt->bindParam(":location", $this->location);
+      $stmt->bindParam(":school", $this->school);
       $stmt->bindParam(":description", $this->description);
-      $stmt->bindParam(":category", $this->category);
       $stmt->bindParam(":date_start", $this->date_start);
       $stmt->bindParam(":date_end", $this->date_end);
 
@@ -63,7 +60,7 @@ class Experience {
    }
 
    // Read
-   public function getExperiences() {
+   public function getEducations() {
       // Set up the SQL query
       $query = "SELECT * FROM " . $this->db_table;
 
@@ -92,18 +89,17 @@ class Experience {
                // Extract the data from $row as variables
                extract($row);
 
-               // Create the experience
+               // Create the item
                $item = array(
                   "id" => $id,
                   "title" => $title,
-                  "location" => $location,
+                  "school" => $school,
                   "description" => $description,
-                  "category" => $category,
                   "date_start" => $date_start,
                   "date_end" => $date_end
                );
 
-               // Push experience to array
+               // Push item to array
                array_push($result["data"], $item);
            }
          }
@@ -114,7 +110,7 @@ class Experience {
    }
 
    // Read Single
-   public function getSingleExperience($id) {
+   public function getSingleEducation($id) {
       // Set up the SQL query
       $query = "SELECT * FROM 
                   " . $this->db_table . "
@@ -144,15 +140,14 @@ class Experience {
    }
 
    // Update
-   public function updateExperience($id) {
+   public function updateEducation($id) {
       // Set up the SQL query
       $query = "UPDATE
                   " . $this->db_table . "
                SET
                   title = :title,
-                  location = :location,
+                  school = :school,
                   description = :description,
-                  category = :category,
                   date_start = :date_start,
                   date_end = :date_end
                WHERE
@@ -160,7 +155,7 @@ class Experience {
 
       // Sanitize text input
       $this->title = htmlspecialchars(strip_tags($this->title));
-      $this->location = htmlspecialchars(strip_tags($this->location));
+      $this->school = htmlspecialchars(strip_tags($this->school));
       $this->description = htmlspecialchars(strip_tags($this->description));
 
       // Prepare statement
@@ -169,9 +164,8 @@ class Experience {
       // Bind data to params
       $stmt->bindParam(":id", $id);
       $stmt->bindParam(":title", $this->title);
-      $stmt->bindParam(":location", $this->location);
+      $stmt->bindParam(":school", $this->school);
       $stmt->bindParam(":description", $this->description);
-      $stmt->bindParam(":category", $this->category);
       $stmt->bindParam(":date_start", $this->date_start);
       $stmt->bindParam(":date_end", $this->date_end);
 
@@ -185,7 +179,7 @@ class Experience {
    }
 
    // Delete
-   public function deleteExperience($id) {
+   public function deleteEducation($id) {
       // Set up the SQL query
       $query = "DELETE FROM
                   " . $this->db_table . "
