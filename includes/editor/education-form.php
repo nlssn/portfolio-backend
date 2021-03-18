@@ -13,6 +13,18 @@ if ($isEditing) {
    $item = $education->getSingleEducation($id);
 }
 
+if (isset($_GET["delete"])) {
+   if ($_GET["delete"]) {
+      $deleted = $education->deleteEducation($id);
+
+      if($deleted) {
+         header("Location: editor.php?contentType=education&msg=Utbildning raderad&type=success");
+      } else {
+         header("Location: editor.php?contentType=education&id=" . $id ."&msg=Kunde inte radera utbildning. Vänligen försök igen.&type=error");
+      }
+   }
+}
+
 if (isset($_POST["title"])) {
    $education->title = $_POST["title"];
    $education->school = $_POST["school"];
@@ -56,5 +68,6 @@ if (isset($_POST["title"])) {
       <label for="date_end">Slutdatum</label>
       <input type="date" name="date_end" id="date_end" <?php if($isEditing) { echo 'value="' . $item["date_end"] . '"'; } ?> required>
       <input type="submit" value="<?php if($isEditing) { echo "Spara utbildning" ; } else { echo "Skapa utbildning"; } ?>">
+      <?php if($isEditing) { ?><a href="editor?contentType=education&id=<?= $item["id"] ?>&delete=true">Radera utbildning</a><?php } ?>
    </form>
 </div>
