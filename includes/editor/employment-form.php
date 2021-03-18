@@ -18,9 +18,9 @@ if (isset($_GET["delete"])) {
       $deleted = $employment->deleteEmployment($id);
 
       if($deleted) {
-         header("Location: editor.php?contentType=employment&msg=Utbildning raderad&type=success");
+         header("Location: editor.php?contentType=employment&msg=Anställning raderad&type=success");
       } else {
-         header("Location: editor.php?contentType=employment&id=" . $id ."&msg=Kunde inte radera utbildning. Vänligen försök igen.&type=error");
+         header("Location: editor.php?contentType=employment&id=" . $id ."&msg=Kunde inte radera anställning. Vänligen försök igen.&type=error");
       }
    }
 }
@@ -36,18 +36,18 @@ if (isset($_POST["title"])) {
       $updated = $employment->updateEmployment($id);
 
       if($updated) {
-         header("Location: editor.php?contentType=employment&id=" . $updated["id"] . "&msg=Utbildning uppdaterad&type=success");
+         header("Location: editor.php?contentType=employment&id=" . $updated["id"] . "&msg=Anställning uppdaterad&type=success");
       } else {
-         header("Location: editor.php?contentType=employment&id=" . $id ."&msg=Kunde inte uppdatera utbildning. Vänligen försök igen.&type=error");
+         header("Location: editor.php?contentType=employment&id=" . $id ."&msg=Kunde inte uppdatera anställning. Vänligen försök igen.&type=error");
       }
 
    } else {
       $created = $employment->createEmployment();
 
       if($created) {
-         header("Location: editor.php?contentType=employment&id=" . $created["id"] . "&msg=Ny utbildning tillagd&type=success");
+         header("Location: editor.php?contentType=employment&id=" . $created["id"] . "&msg=Ny anställning tillagd&type=success");
       } else {
-         header("Location: editor.php?contentType=employment&msg=Kunde inte lägga till utbildning. Vänligen försök igen.&type=error");
+         header("Location: editor.php?contentType=employment&msg=Kunde inte lägga till anställning. Vänligen försök igen.&type=error");
       }
    }
 }
@@ -67,7 +67,7 @@ if (isset($_POST["title"])) {
       <input type="date" name="date_start" id="date_start" <?php if($isEditing) { echo 'value="' . $item["date_start"] . '"'; } ?> required>
       <label for="date_end">Slutdatum</label>
       <input type="date" name="date_end" id="date_end" <?php if($isEditing) { echo 'value="' . $item["date_end"] . '"'; } ?> required>
-      <input type="submit" value="<?php if($isEditing) { echo "Spara utbildning" ; } else { echo "Skapa utbildning"; } ?>">
+      <input type="submit" value="<?php if($isEditing) { echo "Spara anställning" ; } else { echo "Skapa anställning"; } ?>">
       <?php if($isEditing) { ?><a href="editor?contentType=employment&id=<?= $item["id"] ?>&delete=true">Radera anställning</a><?php } ?>
    </form>
 </div>
