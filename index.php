@@ -33,8 +33,8 @@ if(isset($_POST["email"])) {
 // Handle any incoming message
 if(isset($_GET["msg"]) && isset($_GET["type"])) {
    $msg = array(
-      "text" => $_GET["msg"],
-      "type" => $_GET["type"]
+      "text" => htmlspecialchars(strip_tags($_GET["msg"])),
+      "type" => htmlspecialchars(strip_tags($_GET["type"]))
    );
 }
 

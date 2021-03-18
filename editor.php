@@ -16,7 +16,7 @@ if(!isset($_SESSION["id"])) {
 if(!isset($_GET["contentType"])) {
    header("Location: admin.php");
 } else {
-   $contentType = $_GET["contentType"];
+   $contentType = htmlspecialchars(strip_tags($_GET["contentType"]));
 }
 
 // Check if we should be editing or creating something new
@@ -25,7 +25,7 @@ if(!isset($_GET["id"])) {
    $title_prefix = "Lägg till";
 } else {
    $isEditing = true;
-   $id = $_GET["id"];
+   $id = htmlspecialchars(strip_tags($_GET["id"]));
    $title_prefix = "Redigera";
 }
 
@@ -45,8 +45,8 @@ switch ($contentType) {
 // Handle any incoming message
 if(isset($_GET["msg"]) && isset($_GET["type"])) {
    $msg = array(
-      "text" => $_GET["msg"],
-      "type" => $_GET["type"]
+      "text" => htmlspecialchars(strip_tags($_GET["msg"])),
+      "type" => htmlspecialchars(strip_tags($_GET["type"]))
    );
 }
 
