@@ -54,7 +54,7 @@ if (isset($_POST["title"])) {
 ?>
 
 <div class="form-container">
-   <?php if(isset($msg)){ echo '<p class="' . $msg["type"] . '">' . $msg["text"] . '</p>'; } ?> 
+   <?php if(isset($msg)){ echo '<p class="' . $msg["type"] . '">' . $msg["text"] . '</p>'; } ?>
 
    <form method="POST">
       <label for="title">Titel för anställning</label>
