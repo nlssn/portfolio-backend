@@ -46,7 +46,7 @@ class Project {
 
       // Try to execute the statement
       if($stmt->execute()) {
-         return true;
+         return $this->getSingleProject($this->conn->lastInsertId());
       }
       
       // If anything fails, return false
@@ -159,7 +159,7 @@ class Project {
 
       // Try to execute the statement
       if($stmt->execute()) {
-         return true;
+         return $this->getSingleProject($id);
       }
       
       // If anything fails, return false
