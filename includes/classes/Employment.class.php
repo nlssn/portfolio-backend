@@ -52,7 +52,7 @@ class Employment {
 
       // Try to execute the statement
       if($stmt->execute()) {
-         return true;
+         return $this->getSingleEmployment($this->conn->lastInsertId());
       }
       
       // If anything fails, return false
@@ -171,7 +171,7 @@ class Employment {
 
       // Try to execute the statement
       if($stmt->execute()) {
-         return true;
+         return $this->getSingleEmployment($id);
       }
       
       // If anything fails, return false
